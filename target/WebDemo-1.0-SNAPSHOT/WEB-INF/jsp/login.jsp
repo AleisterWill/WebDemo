@@ -8,20 +8,22 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <c:url value="/login" var="action" />
-<form method="post" action="${action}" class="was-validated">
+<div class="alert alert-success text-center">
+    <strong>LOGIN</strong>
+</div>
+<c:if test="${param.error != null}">
+    <div class="alert alert-danger">An error has occurred!</div>
+</c:if>
+<form method="post" action="${action}" class="form-group">
     <div class="form-group">
         <label for="username">Username</label>
-        <input type="text" id="username" name="username" placeholder="Enter Username" required />
-        <div class="valid-feedback">Valid</div>
-        <div class="invalid-feedback">Invalid Username</div>
+        <input type="text" id="username" name="username" placeholder="Enter Username" />
     </div>
     <div class="form-group">
         <label for="password">Password</label>
-        <input type="text" id="password" name="password" placeholder="Enter Password" required />
-        <div class="valid-feedback">Valid</div>
-        <div class="invalid-feedback">Please enter password!</div>
+        <input type="password" id="password" name="password" placeholder="Enter Password" />
     </div>
-    <div>
-        <input class="btn btn-success" type="submit">Submit</div>
+    <div class="form-group">
+        <input type="submit" value="Login" />
     </div>
 </form>

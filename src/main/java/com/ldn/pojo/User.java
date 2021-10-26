@@ -7,14 +7,18 @@ package com.ldn.pojo;
 
 import java.io.Serializable;
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 /**
  *
  * @author three
  */
+@Entity
+@Table(name = "user")
 public class User implements Serializable{
     private static String ADMIN = "ROLE_ADMIN";
     private static String USER = "ROLE_USER";

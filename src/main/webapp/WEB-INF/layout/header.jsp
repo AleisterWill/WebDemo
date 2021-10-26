@@ -25,8 +25,22 @@
     <li class="nav-item">
       <a class="nav-link disabled" href="#">Đặt hàng</a>
     </li>
-    <li class="nav-item active">
-        <a class="nav-link text-danger" href="<c:url value="/login"/>">Login</a>
-    </li>
+    <c:if test="${pageContext.request.userPrincipal.name == null}">
+        <li class="nav-item active">
+            <a class="nav-link btn btn-danger" href="<c:url value="/login"/>">Login</a>
+        </li>
+    </c:if>
+    <c:if test="${pageContext.request.userPrincipal.name != null}">
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle btn btn-danger" href="#" id="navbardrop" data-toggle="dropdown">
+                ${pageContext.request.userPrincipal.name}
+            </a>
+            <div class="dropdown-menu">
+                <a class="dropdown-item" href="#">Manage Account</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Logout</a>
+            </div>
+        </li>
+    </c:if>
   </ul>
 </nav>
