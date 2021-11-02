@@ -5,6 +5,7 @@
  */
 package com.ldn.pojo;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
@@ -72,6 +73,7 @@ public class Product implements Serializable{
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "category_id")
 //    @NotNull(message = "{product.category.nullErr}")
+    @JsonIgnore
     private Category category;
     
     @ManyToMany
@@ -80,6 +82,7 @@ public class Product implements Serializable{
             joinColumns = @JoinColumn(name = "product_id"),
             inverseJoinColumns = @JoinColumn(name = "manufacturer_id")
     )
+    @JsonIgnore
     private Set<Manufacturer> manufacturers;
     
     @Transient

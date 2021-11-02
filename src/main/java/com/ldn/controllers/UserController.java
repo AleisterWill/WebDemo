@@ -5,8 +5,18 @@
  */
 package com.ldn.controllers;
 
+import com.ldn.pojo.User;
+import com.ldn.service.UserService;
+import com.ldn.validator.WebAppValidator;
+import javax.validation.Valid;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 
 /**
  *
@@ -14,9 +24,36 @@ import org.springframework.web.bind.annotation.GetMapping;
  */
 @Controller
 public class UserController {
+    @Autowired
+    private UserService userDetailsService;
+    
     @GetMapping("/login")
     public String login() {
         return "login";
     }
     
+    @GetMapping("/register")
+    public String registerView(Model model) {
+        model.addAttribute("user", new User());
+        return "register";
+    }
+    
+    @PostMapping("/register")
+    public String register(Model model, @ModelAttribute(value = "user") @Valid User user,
+            BindingResult result) {
+        String errMsg = "";
+        if (!result.hasErrors()) {
+            if (user.getPassword().equals(user.getConfirmPW())) {
+                if (this.userDetailsService.addUser(user) == true) {
+                    return "redirect:/login";
+                } else {
+                    errMsg = "Something went wrong!";
+                }
+            } else {
+                errMsg = "Password not matched!";
+            }
+        }
+        model.addAttribute("errMsg", errMsg);
+        return "register";
+    }
 }

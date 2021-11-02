@@ -68,16 +68,32 @@ public class WebApplicationContextConfig implements WebMvcConfigurer{
         registry.addFormatter(new CategoryFormatter());
     }
     
+    ////////////   VALIDATORS GO HERE /////////////
     @Bean
     public WebAppValidator productValidator() {
         Set<Validator> springValidators = new HashSet<>();
+        //// ADD VALIDATORS HERE ////
         springValidators.add(new ProductNameValidator());
         
+        /////////////////////////////
         WebAppValidator v = new WebAppValidator();
         v.setSpringValidator(springValidators);
         
         return v;
     }
+    
+//    @Bean
+//    public WebAppValidator userValidator() {
+//        Set<Validator> springValidators = new HashSet<>();
+//        //// ADD VALIDATORS HERE ////
+//        springValidators.add(new UserValidator());
+//        /////////////////////////////
+//        WebAppValidator v = new WebAppValidator();
+//        v.setSpringValidator(springValidators);
+//        
+//        return v;
+//    }
+//    //////////// ///////////////// /////////////
     
     @Bean
     public LocalValidatorFactoryBean validator() {

@@ -38,7 +38,7 @@
             <div class="dropdown-menu">
                 <a class="dropdown-item" href="#">Manage Account</a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Logout</a>
+                <a class="dropdown-item" href="<c:url value="/logout"/>">Logout</a>
             </div>
         </li>
     </c:if>

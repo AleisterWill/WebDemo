@@ -25,7 +25,7 @@ public class ProductNameValidator implements Validator {
     @Override
     public void validate(Object o, Errors errors) {
         Product p = (Product) o;
-        if (p.getName().contains("Fuck"))
+        if (p.getName().toLowerCase().contains("fuck"))
             errors.rejectValue("name", "product.name.vulgarErr");
     }
     

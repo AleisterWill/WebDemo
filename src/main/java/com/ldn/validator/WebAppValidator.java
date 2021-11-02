@@ -7,7 +7,6 @@ package com.ldn.validator;
 
 import com.ldn.pojo.Product;
 import java.util.Set;
-import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintViolation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

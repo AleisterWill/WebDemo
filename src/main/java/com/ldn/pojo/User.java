@@ -12,6 +12,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 /**
  *
@@ -27,19 +30,31 @@ public class User implements Serializable{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     
+    
     @Column(name = "first_name")
+    @NotNull(message = "{user.firstName.nullErr}")
     private String firstName;
     
+    
     @Column(name = "last_name")
+    @NotNull(message = "{user.lastName.nullErr}")
     private String lastName;
     
+    @NotNull(message = "{user.password.lenErr}")
     private String email;
     
     private String phone;
     
+    @NotNull(message = "{user.username.nullErr}")
+    @Size(min = 4, max = 25, message = "{user.username.lenErr}")
     private String username;
     
+    @NotNull(message = "{user.password.nullErr}")
+    @Size(min = 8, message = "{user.password.lenErr}")
     private String password;
+    
+    @Transient
+    private String confirmPW; // ->Use for register.jsp
     
     private boolean active;
     
@@ -54,24 +69,10 @@ public class User implements Serializable{
     }
 
     /**
-     * @param aADMIN the ADMIN to set
-     */
-    public static void setADMIN(String aADMIN) {
-        ADMIN = aADMIN;
-    }
-
-    /**
      * @return the USER
      */
     public static String getUSER() {
         return USER;
-    }
-
-    /**
-     * @param aUSER the USER to set
-     */
-    public static void setUSER(String aUSER) {
-        USER = aUSER;
     }
 
     /**
@@ -170,6 +171,20 @@ public class User implements Serializable{
      */
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    /**
+     * @return the confirmPW
+     */
+    public String getConfirmPW() {
+        return confirmPW;
+    }
+
+    /**
+     * @param confirmPW the confirmPW to set
+     */
+    public void setConfirmPW(String confirmPW) {
+        this.confirmPW = confirmPW;
     }
 
     /**
