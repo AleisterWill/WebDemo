@@ -14,7 +14,7 @@
     <div class="alert alert-danger">${errMsg}</div>
 </c:if>
 <form:form method="post" action="${action}" modelAttribute="user" >
-    <form:errors path="*" cssClass="alert alert-warning" element="div"  />
+    <form:errors path="*" cssClass="alert alert-warning animated fadeInDown" element="div"  />
     <div class="input-group mb-3">
         <div class="input-group-prepend]">
             <span class="input-group-text">First Name</span>

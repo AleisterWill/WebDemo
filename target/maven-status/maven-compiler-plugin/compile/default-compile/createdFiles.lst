@@ -9,6 +9,7 @@ com\ldn\repository\UserRepository.class
 com\ldn\service\CategoryService.class
 com\ldn\repository\CategoryRepository.class
 com\ldn\service\UserService.class
+.netbeans_automatic_build
 com\ldn\controllers\ProductsController.class
 com\ldn\controllers\HomeController.class
 com\ldn\service\impl\CategoryServiceImpl.class

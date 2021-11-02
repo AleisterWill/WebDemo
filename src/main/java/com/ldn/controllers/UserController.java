@@ -48,12 +48,13 @@ public class UserController {
                     return "redirect:/login";
                 } else {
                     errMsg = "Something went wrong!";
+                    model.addAttribute("errMsg", errMsg);
                 }
             } else {
                 errMsg = "Password not matched!";
+                model.addAttribute("errMsg", errMsg);
             }
         }
-        model.addAttribute("errMsg", errMsg);
         return "register";
     }
 }
