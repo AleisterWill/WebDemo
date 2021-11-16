@@ -44,7 +44,7 @@ public class ProductRepositoryImpl implements ProductRepository {
         
         Query qu = session.createQuery(query);
         
-        int max = 6;
+        int max = 6; // 6 items in 1 page
         qu.setMaxResults(max);
         qu.setFirstResult((page - 1)*max );
         
@@ -76,6 +76,12 @@ public class ProductRepositoryImpl implements ProductRepository {
         Query qu = session.createQuery(query);
         
         return (long) qu.getSingleResult() ;
+    }
+
+    @Override
+    public Product getProductById(int productId) {
+        Session session = this.sessionFactory.getObject().getCurrentSession();
+        return session.get(Product.class, productId);
     }
     
 }

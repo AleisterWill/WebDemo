@@ -5,6 +5,8 @@
  */
 package com.ldn.controllers;
 
+import com.ldn.Utils.Utils;
+import com.ldn.pojo.Cart;
 import com.ldn.pojo.Category;
 import com.ldn.pojo.User;
 import com.ldn.service.CategoryService;
@@ -13,6 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import javax.persistence.Query;
+import javax.servlet.http.HttpSession;
 import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
@@ -39,8 +42,9 @@ public class HomeController {
     private ProductService productService;
     
     @ModelAttribute
-    public void commonAttr(Model model) {
+    public void commonAttr(Model model, HttpSession session) {
         model.addAttribute("categories", this.categoryService.getCategories());
+        model.addAttribute("cartCounter", Utils.cartItemsAmount((Map<Integer, Cart>) session.getAttribute("cart")));
     }
     @RequestMapping("/")
     @Transactional
@@ -84,11 +88,5 @@ public class HomeController {
         model.addAttribute("testMsg", "FROM INDEX: Redirect processing...");
         
         return "forward:/hello/Stupid";
-    }
-    
-    @RequestMapping(path = "/cart")
-    public String cart(Model model) {
-        
-        return "cart";
     }
 }

@@ -4,13 +4,14 @@ com\ldn\repository\ProductRepository.class
 com\ldn\service\impl\UserServiceImpl.class
 com\ldn\configs\TilesConfig.class
 com\ldn\repository\impl\ProductRepositoryImpl.class
+com\ldn\Utils\Utils.class
 com\ldn\repository\impl\CategoryRepositoryImpl.class
 com\ldn\repository\UserRepository.class
 com\ldn\service\CategoryService.class
 com\ldn\repository\CategoryRepository.class
 com\ldn\service\UserService.class
-.netbeans_automatic_build
 com\ldn\controllers\ProductsController.class
+com\ldn\pojo\Cart.class
 com\ldn\controllers\HomeController.class
 com\ldn\service\impl\CategoryServiceImpl.class
 com\ldn\pojo\Manufacturer.class
@@ -20,6 +21,7 @@ com\ldn\configs\WebApplicationContextConfig.class
 com\ldn\controllers\UserController.class
 com\ldn\configs\HibernateConfig.class
 com\ldn\controllers\ApiCartController.class
+com\ldn\controllers\CartController.class
 com\ldn\pojo\User.class
 com\ldn\formatter\CategoryFormatter.class
 com\ldn\service\impl\ProductServiceImpl.class

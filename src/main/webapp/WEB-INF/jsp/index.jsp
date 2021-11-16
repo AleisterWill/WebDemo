@@ -36,6 +36,9 @@ ${page}
 <div class="row">
     <c:forEach var="p" items="${products}">
         <div class="card col-md-4">
+            <div class="card-header text-center">
+                <h3>${p.name}</h3>
+            </div>
             <div class="card-body">
                 <c:if test="${p.image != null && p.image.startsWith('https') == true}">
                     <img class="img-fluid" src="<c:url value="${p.image}"/>" alt="alt"/>
@@ -45,8 +48,8 @@ ${page}
                 </c:if>
             </div>
             <div class="card-footer">
-                <h3>${p.name}</h3>
                 <p>${p.price} VND </p>
+                <a class="btn btn-danger" href="javascript:;" onclick="addToCart(${p.id})">Add to Cart</a>
             </div>
         </div>
     </c:forEach>

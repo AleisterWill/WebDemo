@@ -16,7 +16,7 @@
       <a class="nav-link" href="#">Liên hệ</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="<c:url value="/cart" />">Giỏ hàng</a>
+        <a class="nav-link" href="<c:url value="/cart" />">Giỏ hàng <span class="badge badge-primary" id="cart-counter">${cartCounter}</span></a>
     </li>
     <c:forEach var="cat" items="${categories}" >
         <li class="nav-item">

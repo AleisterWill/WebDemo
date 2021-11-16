@@ -21,6 +21,7 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     </head>
     <body>
+        <script src="<c:url value="/js/main.js" />"></script>
         <div class="container">
             <!-- HEADER -->
             <tiles:insertAttribute name="header" />
